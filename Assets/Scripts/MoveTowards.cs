@@ -4,7 +4,7 @@ public class MoveTowards : MonoBehaviour
 {
     private Rigidbody obstacleRb;
     private float zOutOfBounds = -5.0f;
-    public float speed = 1.5f;
+    public float speed = 50f;
 
     //Getting player scripts
     private PlayerController playerControllerScript;

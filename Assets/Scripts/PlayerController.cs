@@ -86,6 +86,8 @@ public class PlayerController : MonoBehaviour
             // Stop all obstacles completely w/ physics
             playerRb.linearVelocity = Vector3.zero;
             playerRb.angularVelocity = Vector3.zero;
+            //Prevent further physics interactions (Throws an error)
+            playerRb.isKinematic = true; 
 
         }
 
