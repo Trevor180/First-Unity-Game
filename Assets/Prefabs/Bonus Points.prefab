@@ -16,8 +16,8 @@ GameObject:
   - component: {fileID: 1792797079966946751}
   - component: {fileID: 1974847313922142398}
   m_Layer: 0
-  m_Name: Health
-  m_TagString: Powerup
+  m_Name: Bonus Points
+  m_TagString: Bonus Points
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -152,7 +152,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32e3b0dd5ff7feb49aab8789749617d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1.5
 --- !u!114 &1974847313922142398
 MonoBehaviour:
   m_ObjectHideFlags: 0

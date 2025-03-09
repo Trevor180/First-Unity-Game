@@ -9,8 +9,21 @@ public class PlayerController : MonoBehaviour
     private float outOfBoundsLeftX = -2.51f;
     private float outOfBoundsRightX = 2.75f;
 
+
+    //Sound effects
+    private AudioSource playerAudio;
+    public AudioClip powerupSound;
+    public AudioClip gameOverSound;
+    public AudioClip hitEnemySound;
+
+
+
     //Signaling that the game is over
     public bool gameOver = false;
+
+    //If player has bomb power up
+    public bool hasBomb = false;
+
 
     //Grabbing move towards scripts
 
@@ -25,6 +38,8 @@ public class PlayerController : MonoBehaviour
         //Getting component for physics
         playerRb = GetComponent<Rigidbody>();
 
+        //Referencing Audio Source
+        playerAudio = GetComponent<AudioSource>();
        
 
         
@@ -77,29 +92,87 @@ public class PlayerController : MonoBehaviour
     //Collisions with enemies and powerups
     private void OnCollisionEnter(Collision collision)
     {
-        //Game over
-        if(collision.gameObject.CompareTag("Enemy"))
+
+        //Bomb powerup and hits enemy
+        if (collision.gameObject.CompareTag("Enemy") && hasBomb == true)
+        {
+
+            //Destroying enemy
+            Destroy(collision.gameObject);
+
+            //Player destroys obstacle sound
+            playerAudio.PlayOneShot(hitEnemySound, 0.5f);
+
+            //Turning powerup bomb off
+            hasBomb = false;
+
+            Debug.Log("Enemy has blown up");
+
+            //Stopping next block of code from running
+            return;
+
+        }
+
+        //Game over (when player doesn't have a bomb
+        if (collision.gameObject.CompareTag("Enemy") && hasBomb == false)
         {
             gameOver = true;
             Debug.Log("Enemy has been hit");
 
-            // Stop all obstacles completely w/ physics
-            playerRb.linearVelocity = Vector3.zero;
-            playerRb.angularVelocity = Vector3.zero;
-            //Prevent further physics interactions (Throws an error)
-            playerRb.isKinematic = true; 
+            StopPlayer();
+
+            //Player game over audio
+            playerAudio.PlayOneShot(hitEnemySound, 0.2f);
+            playerAudio.PlayOneShot(gameOverSound, 0.2f);
+        }
+
+
+    }
+
+
+    private void OnTriggerEnter(Collider other)
+    {
+        //Passing other parameter into functions
+        PlayerHasBomb(other);
+        PlayerBonusPoints(other);
+    }
+
+
+
+    void StopPlayer()
+    {
+        // Stop all obstacles completely w/ physics
+        playerRb.linearVelocity = Vector3.zero;
+        playerRb.angularVelocity = Vector3.zero;
+        //Prevent further physics interactions (Throws an error)
+        playerRb.isKinematic = true;
+
+    }
+
+    //When player picks up bomb powerup
+    void PlayerHasBomb(Collider other)
+    {
+         if (other.gameObject.CompareTag("Bomb"))
+        {
+            Destroy(other.gameObject);
+            Debug.Log("Player has a bomb!");
+            hasBomb = true;
+            playerAudio.PlayOneShot(powerupSound, 0.2f);
 
         }
 
     }
 
-    private void OnTriggerEnter(Collider other)
+    //When player picks up bonus power up
+    void PlayerBonusPoints(Collider other)
     {
-        if (other.gameObject.CompareTag("Powerup"))
+        if (other.gameObject.CompareTag("Bonus Points"))
         {
             Destroy(other.gameObject);
-            Debug.Log("Player has powered up!");
+            Debug.Log("Player got bonus points!");
+            playerAudio.PlayOneShot(powerupSound, 0.2f);
 
         }
+
     }
 }
