@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     public AudioClip powerupSound;
     public AudioClip gameOverSound;
     public AudioClip hitEnemySound;
+    private float soundEffectVolume = 0.06f;
 
 
 
@@ -101,7 +102,7 @@ public class PlayerController : MonoBehaviour
             Destroy(collision.gameObject);
 
             //Player destroys obstacle sound
-            playerAudio.PlayOneShot(hitEnemySound, 0.5f);
+            playerAudio.PlayOneShot(hitEnemySound, soundEffectVolume);
 
             //Turning powerup bomb off
             hasBomb = false;
@@ -122,8 +123,8 @@ public class PlayerController : MonoBehaviour
             StopPlayer();
 
             //Player game over audio
-            playerAudio.PlayOneShot(hitEnemySound, 0.2f);
-            playerAudio.PlayOneShot(gameOverSound, 0.2f);
+            playerAudio.PlayOneShot(hitEnemySound, soundEffectVolume);
+            playerAudio.PlayOneShot(gameOverSound, 0.05f);
         }
 
 
@@ -157,7 +158,7 @@ public class PlayerController : MonoBehaviour
             Destroy(other.gameObject);
             Debug.Log("Player has a bomb!");
             hasBomb = true;
-            playerAudio.PlayOneShot(powerupSound, 0.2f);
+            playerAudio.PlayOneShot(powerupSound, soundEffectVolume);
 
         }
 
@@ -170,7 +171,7 @@ public class PlayerController : MonoBehaviour
         {
             Destroy(other.gameObject);
             Debug.Log("Player got bonus points!");
-            playerAudio.PlayOneShot(powerupSound, 0.2f);
+            playerAudio.PlayOneShot(powerupSound, soundEffectVolume);
 
         }
 
