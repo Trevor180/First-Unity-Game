@@ -1,12 +1,15 @@
 using UnityEngine;
 using UnityEngine.SceneManagement; //Managing Scene
-using UnityEngine.UI; //Grabbing buttons
+using UnityEngine.UI; //Grabbing buttons and UI
 
 public class GameManager : MonoBehaviour
 {
 
     //Making button variable
     public Button restartButton;
+
+    //Getting game over image
+    public Image gameOverImage;
 
     //Getting player scripts
     private PlayerController playerControllerScript;
@@ -39,8 +42,9 @@ public class GameManager : MonoBehaviour
 
     public void GameOverScreen()
     {
-        //Showing  restart button
-        restartButton.gameObject.SetActive(true); 
+        //Showing  restart button and game over title
+        restartButton.gameObject.SetActive(true);
+        gameOverImage.gameObject.SetActive(true);
         
     }
 
