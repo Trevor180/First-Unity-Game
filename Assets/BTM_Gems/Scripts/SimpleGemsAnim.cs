@@ -33,8 +33,8 @@ namespace Benjathemaker
             initialPosition = transform.position;
 
             // Adjust start and end scale based on initial scale
-            startScale = initialScale;
-            endScale = initialScale * (endScale.magnitude / startScale.magnitude);
+            //startScale = initialScale;
+            //endScale = initialScale * (endScale.magnitude / startScale.magnitude);
         }
 
         void Update()
@@ -58,18 +58,18 @@ namespace Benjathemaker
                 transform.position = initialPosition + new Vector3(0, t * floatHeight, 0);
             }
 
-            if (isScaling)
-            {
-                scaleTimer += Time.deltaTime * scaleLerpSpeed;
-                float t = Mathf.PingPong(scaleTimer, 1f); // Oscillates between 0 and 1
+            //if (isScaling)
+            //{
+            //    scaleTimer += Time.deltaTime * scaleLerpSpeed;
+            //    float t = Mathf.PingPong(scaleTimer, 1f); // Oscillates between 0 and 1
 
-                if (useEasingForScaling)
-                {
-                    t = EaseInOutQuad(t);
-                }
+            //    if (useEasingForScaling)
+            //    {
+            //        t = EaseInOutQuad(t);
+            //    }
 
-                transform.localScale = Vector3.Lerp(startScale, endScale, t);
-            }
+            //    transform.localScale = Vector3.Lerp(startScale, endScale, t);
+            //}
         }
 
         float EaseInOutQuad(float t)

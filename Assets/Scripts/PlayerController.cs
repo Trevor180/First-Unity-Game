@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+
+    //GameManager Variable
+    private GameManager gameManagerScript;
+
+
     private float horizontalInput;
     public float speed;
     private float outOfBoundsLeftX = -2.51f;
@@ -41,9 +46,12 @@ public class PlayerController : MonoBehaviour
 
         //Referencing Audio Source
         playerAudio = GetComponent<AudioSource>();
-       
 
-        
+        //Referencing game manager
+        gameManagerScript = GameObject.Find("Game Manager").GetComponent<GameManager>();
+
+
+
     }
 
     // Update is called once per frame
@@ -117,14 +125,26 @@ public class PlayerController : MonoBehaviour
         //Game over (when player doesn't have a bomb
         if (collision.gameObject.CompareTag("Enemy") && hasBomb == false)
         {
-            gameOver = true;
-            Debug.Log("Enemy has been hit");
 
-            StopPlayer();
+            //Making sure if game is still going
+            //Runs code once
+            if (gameOver == false)
+            {
+                gameOver = true;
+                Debug.Log("Enemy has been hit");
 
-            //Player game over audio
-            playerAudio.PlayOneShot(hitEnemySound, soundEffectVolume);
-            playerAudio.PlayOneShot(gameOverSound, 0.05f);
+                //Stops the player
+                StopPlayer();
+
+                //Player game over audio
+                playerAudio.PlayOneShot(hitEnemySound, soundEffectVolume);
+                playerAudio.PlayOneShot(gameOverSound, 0.05f);
+
+                //Game over screen
+                gameManagerScript.GameOverScreen();
+
+            }
+
         }
 
 

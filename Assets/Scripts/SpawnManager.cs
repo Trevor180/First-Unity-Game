@@ -35,14 +35,10 @@ public class SpawnManager : MonoBehaviour
         playerControllerScript = GameObject.Find("Player").GetComponent<PlayerController>();
 
         
-            //Spawning enemies and powerups randomly
-            //Within bounds
-            InvokeRepeating("SpawnEnemies", enemyStartDelay, enemySpawnTime);
-            InvokeRepeating("SpawnPowerups", powerupStartDelay, powerupSpawnTime);
-
-        
-        
-
+        //Spawning enemies and powerups randomly
+        //Within bounds
+        InvokeRepeating("SpawnEnemies", enemyStartDelay, enemySpawnTime);
+        InvokeRepeating("SpawnPowerups", powerupStartDelay, powerupSpawnTime);
 
     }
 
