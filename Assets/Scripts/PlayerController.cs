@@ -11,8 +11,8 @@ public class PlayerController : MonoBehaviour
 
     private float horizontalInput;
     public float speed;
-    private float outOfBoundsLeftX = -2.51f;
-    private float outOfBoundsRightX = 2.75f;
+    private float outOfBoundsLeftX = -1.71f;
+    private float outOfBoundsRightX = 2.904f;
 
 
     //Sound effects

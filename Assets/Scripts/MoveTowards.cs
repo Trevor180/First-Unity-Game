@@ -27,8 +27,8 @@ public class MoveTowards : MonoBehaviour
     void Update()
     {
 
-        //Calling game over
-        GameOverCode();
+        //Calling game over for obstacles
+        ObstacleMovement();
 
         //Destroying objects past a certain point
         DestroyObjects();
@@ -45,7 +45,7 @@ public class MoveTowards : MonoBehaviour
         }
     }
 
-    void GameOverCode()
+    void ObstacleMovement()
     {
         //Making sure player boolean is false
         if (playerControllerScript.gameOver == false)

@@ -9,8 +9,8 @@ public class SpawnManager : MonoBehaviour
     //Getting ranges
     private float zEnemySpawnRange = 20.0f;
     private float zPowerupSpawnRange = 22.0f;
-    private float xSpawnRangeRight = 2.75f;
-    private float xSpawnRangeLeft = -2.51f;
+    private float xSpawnRangeRight = 2.904f;
+    private float xSpawnRangeLeft = -1.71f;
     private float groundLevel= 0;
 
     //Enemy spawn traits
