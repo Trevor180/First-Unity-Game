@@ -1,9 +1,17 @@
 using UnityEngine;
 using UnityEngine.SceneManagement; //Managing Scene
 using UnityEngine.UI; //Grabbing buttons and UI
+using TMPro; //Can use text mesh pro classes and methods
+using System.ComponentModel; 
+
 
 public class GameManager : MonoBehaviour
 {
+    //Getting text
+    public TextMeshProUGUI scoreText;
+
+    //Player score
+    private int score;
 
     //Making button variable
     public Button restartButton;
@@ -28,7 +36,8 @@ public class GameManager : MonoBehaviour
         //Restarting game when restart button is clicked
         restartButton.onClick.AddListener(RestartGame);
 
-
+        //Arranging score
+        score = 0;
 
 
     }
@@ -36,7 +45,9 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        //Adding score
+        AddingScore(10);
+
     }
 
 
@@ -53,4 +64,23 @@ public class GameManager : MonoBehaviour
         //Using current active scene
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
+
+
+    //Adding 10 points as long as player is moving
+    public void AddingScore(int pointsAdded)
+    {
+        if (playerControllerScript.gameOver == false)
+        {
+            // Making score go up smoothly
+            score += Mathf.RoundToInt(pointsAdded * (Time.deltaTime * 10f)); 
+
+            scoreText.text = "Score " + score;
+
+            Debug.Log("Score Updating: " + score);
+
+        }
+
+    }
+
+
 }
