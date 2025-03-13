@@ -1,10 +1,11 @@
+using System.Collections;
 using UnityEngine;
 
 public class MoveTowards : MonoBehaviour
 {
     private Rigidbody obstacleRb;
     private float zOutOfBounds = -5.0f;
-    private float speed = 3.5f;
+    private float speed = 5f;
 
 
     //Getting player scripts
@@ -21,7 +22,8 @@ public class MoveTowards : MonoBehaviour
         playerControllerScript = GameObject.Find("Player").GetComponent<PlayerController>();
 
 
-        
+
+
     }
 
     // Update is called once per frame
@@ -33,6 +35,7 @@ public class MoveTowards : MonoBehaviour
 
         //Destroying objects past a certain point
         DestroyObjects();
+
 
     }
 
@@ -56,7 +59,9 @@ public class MoveTowards : MonoBehaviour
 
 
             //Moving obstacle towards screen
-            obstacleRb.AddForce(Vector3.back * speed);
+            //obstacleRb.AddForce(Vector3.back * speed);
+
+            obstacleRb.transform.Translate(Vector3.back * speed * Time.deltaTime);
 
         }
         else
