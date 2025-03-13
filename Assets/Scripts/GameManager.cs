@@ -30,8 +30,6 @@ public class GameManager : MonoBehaviour
         //Grabbing player object
         playerControllerScript = GameObject.Find("Player").GetComponent<PlayerController>();
 
-        //Not showing  restart button
-        //restartButton.gameObject.SetActive(false);
 
         //Restarting game when restart button is clicked
         restartButton.onClick.AddListener(RestartGame);

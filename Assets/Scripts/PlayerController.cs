@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
     private float soundEffectVolume = 0.06f;
 
     //Explosion effect
-    //public GameObject explosionPrefab;
+    public ParticleSystem explosionPrefab;
 
 
     //Getting obstacle script
@@ -49,7 +49,6 @@ public class PlayerController : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
         //Getting component for physics
         playerRb = GetComponent<Rigidbody>();
 
@@ -118,7 +117,7 @@ public class PlayerController : MonoBehaviour
         {
 
             //Play explosion
-            //Instantiate(explosionPrefab, transform.position + transform.forward * 1.5f, transform.rotation);
+            explosionPrefab.Play();
 
             //Destroying enemy
             Destroy(collision.gameObject);
