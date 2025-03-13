@@ -5,11 +5,12 @@ public class Obstacle : MonoBehaviour
     private float outOfBoundsLeftX = -2.51f;
     private float outOfBoundsRightX = 2.75f;
 
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
 
-       
+
 
 
 
@@ -45,4 +46,7 @@ public class Obstacle : MonoBehaviour
         }
 
     }
+
+
+
 }

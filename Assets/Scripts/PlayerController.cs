@@ -23,6 +23,9 @@ public class PlayerController : MonoBehaviour
     public AudioClip hitEnemySound;
     private float soundEffectVolume = 0.06f;
 
+    //Explosion effect
+    //public GameObject explosionPrefab;
+
 
     //Getting obstacle script
     private Obstacle obstacleScript;
@@ -113,6 +116,9 @@ public class PlayerController : MonoBehaviour
         //Bomb powerup and hits enemy
         if (collision.gameObject.CompareTag("Enemy") && hasBomb == true)
         {
+
+            //Play explosion
+            //Instantiate(explosionPrefab, transform.position + transform.forward * 1.5f, transform.rotation);
 
             //Destroying enemy
             Destroy(collision.gameObject);
