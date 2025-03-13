@@ -72,7 +72,9 @@ public class GameManager : MonoBehaviour
         if (playerControllerScript.gameOver == false)
         {
             // Making score go up smoothly
-            score += Mathf.RoundToInt(pointsAdded * (Time.deltaTime * 10f)); 
+            score += Mathf.RoundToInt(pointsAdded * (Time.deltaTime * 10.0f));
+
+
 
             scoreText.text = "Score " + score;
 

@@ -5,6 +5,9 @@ public class Camera : MonoBehaviour
 
     private AudioSource gameplaySound;
     private PlayerController playerControllerScript;
+    internal CameraClearFlags clearFlags;
+
+    public static Camera main { get; internal set; }
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created

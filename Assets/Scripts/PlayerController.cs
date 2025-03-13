@@ -24,6 +24,10 @@ public class PlayerController : MonoBehaviour
     private float soundEffectVolume = 0.06f;
 
 
+    //Getting obstacle script
+    private Obstacle obstacleScript;
+
+
 
     //Signaling that the game is over
     public bool gameOver = false;
@@ -42,6 +46,7 @@ public class PlayerController : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+
         //Getting component for physics
         playerRb = GetComponent<Rigidbody>();
 
@@ -111,6 +116,7 @@ public class PlayerController : MonoBehaviour
 
             //Destroying enemy
             Destroy(collision.gameObject);
+
 
             //Player destroys obstacle sound
             playerAudio.PlayOneShot(hitEnemySound, soundEffectVolume);

@@ -6,6 +6,7 @@ public class MoveTowards : MonoBehaviour
     private float zOutOfBounds = -5.0f;
     private float speed = 3.5f;
 
+
     //Getting player scripts
     private PlayerController playerControllerScript;
 
