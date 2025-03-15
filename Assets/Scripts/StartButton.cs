@@ -1,22 +1,30 @@
 using UnityEngine;
+using UnityEngine.UI;
 
-public class Explode : MonoBehaviour
+public class StartButton : MonoBehaviour
 {
-    //Explosion effect
-    public GameObject explosionPrefab;
+    private Button button;
+
 
     //Getting player scripts
     private PlayerController playerControllerScript;
 
 
-
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
         //Grabbing player object
         playerControllerScript = GameObject.Find("Player").GetComponent<PlayerController>();
 
+
+
+        //Referencing button
+        button = GetComponent<Button>();
+
+        //Setting up method for when button is clicked
+        button.onClick.AddListener(SetDifficulty);
+
+        
     }
 
     // Update is called once per frame
@@ -25,18 +33,12 @@ public class Explode : MonoBehaviour
         
     }
 
-    private void OnCollisionEnter(Collision collision)
+
+    //Starting game when button is clicked
+    void SetDifficulty()
     {
-        if (collision.gameObject.CompareTag("Player") && playerControllerScript.hasBomb == true)
-        {
-
-            //Play explosion
-            explosionPrefab.SetActive(true);
-
-
-        }
+        playerControllerScript.StartGame();
 
 
     }
-
 }

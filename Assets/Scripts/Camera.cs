@@ -7,7 +7,6 @@ public class Camera : MonoBehaviour
     private AudioSource gameplaySound;
 
     //Getting title music publically
-
     public AudioSource titleMusic;
     private PlayerController playerControllerScript;
     internal CameraClearFlags clearFlags;

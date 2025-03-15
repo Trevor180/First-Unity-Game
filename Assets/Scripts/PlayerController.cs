@@ -1,6 +1,7 @@
 using System.Runtime.CompilerServices;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.SocialPlatforms.Impl;
 
 public class PlayerController : MonoBehaviour
@@ -11,6 +12,9 @@ public class PlayerController : MonoBehaviour
 
     //Camera title music
     private Camera titleMusic;
+
+    //Getting object speeds
+    private MoveTowards objectSpeed;
 
 
     private float horizontalInput;
@@ -52,6 +56,10 @@ public class PlayerController : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+
+
+        //Getting MoveTowards Script
+        //objectSpeed = GameObject.Find("Enemy 1").GetComponent<MoveTowards>();
 
         //Getting component for physics
         playerRb = GetComponent<Rigidbody>();
@@ -233,6 +241,9 @@ public class PlayerController : MonoBehaviour
 
         //Turning off title music
         titleMusic.titleMusic.enabled = false;
+
+        //Whatever the difficulty is the speed
+        //objectSpeed.speed = speed;
 
     }
 
