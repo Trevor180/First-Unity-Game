@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
@@ -20,6 +21,7 @@ public class SpawnManager : MonoBehaviour
     //Powerup traits
     private float powerupStartDelay = 2.0f;
     private float powerupSpawnTime = 2.0f;
+
 
     //Getting player scripts
     private PlayerController playerControllerScript;
@@ -97,4 +99,15 @@ public class SpawnManager : MonoBehaviour
 
 
     }
+
+    //IEnumerator speedUpSpawn()
+    //{
+    //    yield return new WaitForSeconds(spawnIncreaseInterval);
+
+
+
+
+
+    //}
+
 }

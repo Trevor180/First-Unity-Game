@@ -45,7 +45,6 @@ public class GameManager : MonoBehaviour
     {
         //Adding score
         AddingScore(10);
-
     }
 
 

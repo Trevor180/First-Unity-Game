@@ -9,6 +9,9 @@ public class PlayerController : MonoBehaviour
     //GameManager Variable
     private GameManager gameManagerScript;
 
+    //Camera title music
+    private Camera titleMusic;
+
 
     private float horizontalInput;
     public float speed;
@@ -27,13 +30,13 @@ public class PlayerController : MonoBehaviour
     public ParticleSystem explosionPrefab;
 
 
-    //Getting obstacle script
-    private Obstacle obstacleScript;
+    //Getting title screen
+    public GameObject titleScreen;
 
 
 
     //Signaling that the game is over
-    public bool gameOver = false;
+    public bool gameOver;
 
     //If player has bomb power up
     public bool hasBomb = false;
@@ -49,6 +52,7 @@ public class PlayerController : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+
         //Getting component for physics
         playerRb = GetComponent<Rigidbody>();
 
@@ -57,6 +61,12 @@ public class PlayerController : MonoBehaviour
 
         //Referencing game manager
         gameManagerScript = GameObject.Find("Game Manager").GetComponent<GameManager>();
+
+        //Referencing camera
+        titleMusic = GameObject.Find("Main Camera").GetComponent<Camera>();
+
+        //Starting game frozen
+        gameOver = true;
 
 
 
@@ -208,6 +218,21 @@ public class PlayerController : MonoBehaviour
             playerAudio.PlayOneShot(powerupSound, soundEffectVolume);
 
         }
+
+    }
+
+    public void StartGame()
+    {
+        gameOver = false;
+
+        //Turning off title screen
+        titleScreen.gameObject.SetActive(false);
+
+        //Turning on score
+        gameManagerScript.scoreText.gameObject.SetActive(true);
+
+        //Turning off title music
+        titleMusic.titleMusic.enabled = false;
 
     }
 

@@ -5,7 +5,15 @@ public class MoveTowards : MonoBehaviour
 {
     private Rigidbody obstacleRb;
     private float zOutOfBounds = -5.0f;
-    private float speed = 5f;
+
+    //Speed
+    private float speed = 1.5f;
+    private float speedIncreaseInterval = 5.0f;
+    // How much force increases per second
+    private float speedIncreaseRate = 0.5f;
+    // How much force increases per second
+    private float speedCap = 4.0f;  
+
 
 
     //Getting player scripts
@@ -30,11 +38,15 @@ public class MoveTowards : MonoBehaviour
     void Update()
     {
 
-        //Calling game over for obstacles
-        ObstacleMovement();
+        if (playerControllerScript.gameOver == false)
+        {
+            //Calling game over for obstacles
+            ObstacleMovement();
 
-        //Destroying objects past a certain point
-        DestroyObjects();
+            //Destroying objects past a certain point
+            DestroyObjects();
+        }
+        
 
 
     }
@@ -54,6 +66,10 @@ public class MoveTowards : MonoBehaviour
         //Making sure player boolean is false
         if (playerControllerScript.gameOver == false)
         {
+             //Speeding up overtime
+             StartCoroutine(SpeedUp());
+            
+
             // Re-enable physics
             //obstacleRb.isKinematic = false;
 
@@ -61,7 +77,11 @@ public class MoveTowards : MonoBehaviour
             //Moving obstacle towards screen
             //obstacleRb.AddForce(Vector3.back * speed);
 
-            obstacleRb.transform.Translate(Vector3.back * speed * Time.deltaTime);
+            //Adding force continually
+            obstacleRb.AddForce(Vector3.back * speed, ForceMode.Force);
+
+
+            //obstacleRb.transform.Translate(Vector3.back * speed * Time.deltaTime);
 
         }
         else
@@ -70,11 +90,25 @@ public class MoveTowards : MonoBehaviour
             obstacleRb.linearVelocity = Vector3.zero;
             obstacleRb.angularVelocity = Vector3.zero;
 
+            speed = 0;
             //Prevent further physics interactions (Throws an error)
             //So I might delete later
             //obstacleRb.isKinematic = false; 
         }
 
+    }
+
+    IEnumerator SpeedUp()
+    {
+        yield return new WaitForSeconds(speedIncreaseInterval);
+
+        if (speed <= speedCap)
+        {
+          
+            // Increase force over time
+            speed += speedIncreaseRate * Time.fixedDeltaTime;
+        }
+        
     }
 
 }

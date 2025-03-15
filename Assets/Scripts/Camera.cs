@@ -3,7 +3,12 @@ using UnityEngine;
 public class Camera : MonoBehaviour
 {
 
+    //Getting gameplay music privately
     private AudioSource gameplaySound;
+
+    //Getting title music publically
+
+    public AudioSource titleMusic;
     private PlayerController playerControllerScript;
     internal CameraClearFlags clearFlags;
 
@@ -13,13 +18,11 @@ public class Camera : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        //Referencing player
-        playerControllerScript = GameObject.Find("Player").GetComponent<PlayerController>();
-
-        //Referencing gameplay music
+        //Referencing Gameplay Sound
         gameplaySound = GetComponent<AudioSource>();
 
-        
+        //Referencing player
+        playerControllerScript = GameObject.Find("Player").GetComponent<PlayerController>();
 
         
     }
@@ -27,13 +30,13 @@ public class Camera : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        PlayMusic();
+        GameplayPlayMusic();
 
     }
 
 
     //Playing music when game is going
-    void PlayMusic()
+    void GameplayPlayMusic()
     {
         if(playerControllerScript.gameOver == false)
         {
