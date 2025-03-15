@@ -5,6 +5,8 @@ public class DifficultyButton : MonoBehaviour
 {
     private Button button;
 
+    public float difficulty;
+
 
     //Getting player scripts
     private PlayerController playerControllerScript;

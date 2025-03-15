@@ -20,7 +20,7 @@ public class SpawnManager : MonoBehaviour
 
     //Powerup traits
     private float powerupStartDelay = 2.0f;
-    private float powerupSpawnTime = 2.0f;
+    private float powerupSpawnTime = 5.0f;
 
 
     //Getting player scripts
