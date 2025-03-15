@@ -19,6 +19,9 @@ public class GameManager : MonoBehaviour
     //Getting game over image
     public Image gameOverImage;
 
+    //Getting bomb powerup image
+    public Image bombPowerup;
+
     //Getting player scripts
     private PlayerController playerControllerScript;
     

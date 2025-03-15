@@ -144,6 +144,9 @@ public class PlayerController : MonoBehaviour
             //Player destroys obstacle sound
             playerAudio.PlayOneShot(hitEnemySound, soundEffectVolume);
 
+            //Turning off bomb powerup UI
+            gameManagerScript.bombPowerup.gameObject.SetActive(false);
+
             //Turning powerup bomb off
             hasBomb = false;
 
@@ -208,7 +211,14 @@ public class PlayerController : MonoBehaviour
          if (other.gameObject.CompareTag("Bomb"))
         {
             Destroy(other.gameObject);
+
+            //Showing bomb powerup UI
+            gameManagerScript.bombPowerup.gameObject.SetActive(true);
+
+
             Debug.Log("Player has a bomb!");
+
+            //Bomb boolean set true
             hasBomb = true;
             playerAudio.PlayOneShot(powerupSound, soundEffectVolume);
 

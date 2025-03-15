@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: 2315173894285675198}
   - component: {fileID: 4397197773635224765}
   - component: {fileID: 4724757548046476611}
-  - component: {fileID: -2188132943485346887}
   m_Layer: 0
   m_Name: Enemy 3
   m_TagString: Enemy
@@ -165,19 +164,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 313dc5b71033dbd498953b36f717fdbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &-2188132943485346887
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5590327587856148076}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01a6346f0c9ba944d83d8497ba060cc7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  explosionPrefab: {fileID: 6819100047160999900}
 --- !u!1001 &4427177357070324255
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -320,10 +306,5 @@ PrefabInstance:
 --- !u!4 &6819100047160999715 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1007127540951276611, guid: 3ace37360f306cb4aac03640550fa9ef, type: 3}
-  m_PrefabInstance: {fileID: 6005627569394197344}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &6819100047160999900 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1007127540951276732, guid: 3ace37360f306cb4aac03640550fa9ef, type: 3}
   m_PrefabInstance: {fileID: 6005627569394197344}
   m_PrefabAsset: {fileID: 0}
