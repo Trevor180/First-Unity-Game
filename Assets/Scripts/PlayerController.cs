@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
     private GameManager gameManagerScript;
 
     //Camera title music
-    private Camera titleMusic;
+    private MainCamera titleMusic;
 
     //Getting object speeds
     private MoveTowards objectSpeed;
@@ -32,6 +32,7 @@ public class PlayerController : MonoBehaviour
 
     //Explosion effect
     public ParticleSystem explosionPrefab;
+    public ParticleSystem enemyHitExplosionPrefab;
 
 
     //Getting title screen
@@ -71,7 +72,7 @@ public class PlayerController : MonoBehaviour
         gameManagerScript = GameObject.Find("Game Manager").GetComponent<GameManager>();
 
         //Referencing camera
-        titleMusic = GameObject.Find("Main Camera").GetComponent<Camera>();
+        titleMusic = GameObject.Find("Main Camera").GetComponent<MainCamera>();
 
         //Starting game frozen
         gameOver = true;
@@ -167,6 +168,9 @@ public class PlayerController : MonoBehaviour
             {
                 gameOver = true;
                 Debug.Log("Enemy has been hit");
+
+                //Showing impact smoke
+                enemyHitExplosionPrefab.Play();
 
                 //Stops the player
                 StopPlayer();
