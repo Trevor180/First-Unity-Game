@@ -12,15 +12,23 @@ public class SpawnManager : MonoBehaviour
     private float zPowerupSpawnRange = 22.0f;
     private float xSpawnRangeRight = 2.904f;
     private float xSpawnRangeLeft = -1.71f;
-    private float groundLevel= 0;
+    private float groundLevel = 0;
 
     //Enemy spawn traits
     private float enemyStartDelay = 0.3f;
     private float enemySpawnTime = 0.5f;
 
-    public float GetEnemySpawnTime()
+
+    //Subtracting spawn time
+    public float SubtractEnemySpawnTime(float decrease)
+    { 
+        return enemySpawnTime -= decrease;
+    }
+
+    //capping spawn time
+    public float SetEnemySpawnTime(float cap)
     {
-        return enemySpawnTime;
+        return enemySpawnTime = cap;
     }
 
     //Powerup traits

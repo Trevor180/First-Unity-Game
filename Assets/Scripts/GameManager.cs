@@ -24,17 +24,17 @@ public class GameManager : MonoBehaviour
     //Getting bomb powerup image
     public Image bombPowerup;
 
-    //Getting player scripts
+    //Getting player script
     private PlayerController playerControllerScript;
 
-    //Getting player scripts
+    //Getting Spawn Manager script
     private SpawnManager spawnManagerScript;
 
     //Movement speed of objects 2.5
     private float speed = 2.5f;
     private bool isSpeedingUp = false;
     private float speedIncrease = 0.5f;
-    private float speedCap = 6.5f;
+    private float speedCap = 15.0f;
 
     //Making speed getter
     public float GetSpeed()
@@ -51,6 +51,11 @@ public class GameManager : MonoBehaviour
 
         //Grabbing player object
         playerControllerScript = GameObject.Find("Player").GetComponent<PlayerController>();
+
+        //Grabbing spawn manager object
+        spawnManagerScript = GameObject.Find("SpawnManager").GetComponent<SpawnManager>();
+
+
 
         //Restarting game when restart button is clicked
         restartButton.onClick.AddListener(RestartGame);
@@ -114,11 +119,15 @@ public class GameManager : MonoBehaviour
     IEnumerator SpeedUp()
     {
         isSpeedingUp = true;
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(10);
 
         if (speed < speedCap)
         {
             speed += speedIncrease;
+
+            //subtracting to enemy spawn time
+            spawnManagerScript.SubtractEnemySpawnTime(0.1f);
+
             isSpeedingUp = false;
 
         }
@@ -126,6 +135,7 @@ public class GameManager : MonoBehaviour
         {
             //Capping speed
             speed = speedCap;
+            spawnManagerScript.SetEnemySpawnTime(0.01f);
             isSpeedingUp = false;
         }
            

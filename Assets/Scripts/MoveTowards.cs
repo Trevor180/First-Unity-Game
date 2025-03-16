@@ -70,10 +70,6 @@ public class MoveTowards : MonoBehaviour
             // Stop all obstacles completely w/ physics
             obstacleRb.linearVelocity = Vector3.zero;
             obstacleRb.angularVelocity = Vector3.zero;
-
-            //Prevent further physics interactions (Throws an error)
-            //So I might delete later
-            //obstacleRb.isKinematic = false; 
         }
 
     }
