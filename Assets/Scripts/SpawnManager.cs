@@ -22,7 +22,7 @@ public class SpawnManager : MonoBehaviour
     //Subtracting spawn time
     public float SubtractEnemySpawnTime(float decrease)
     { 
-        return enemySpawnTime -= decrease;
+        return enemySpawnTime - decrease;
     }
 
     //capping spawn time
