@@ -1,15 +1,17 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class MoveTowards : MonoBehaviour
 {
     private Rigidbody obstacleRb;
     private float zOutOfBounds = -5.0f;
-    private float speed = 2.0f;
 
 
     //Getting player scripts
     private PlayerController playerControllerScript;
+
+    private GameManager movementSpeed;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -21,6 +23,8 @@ public class MoveTowards : MonoBehaviour
         //Grabbing player object
         playerControllerScript = GameObject.Find("Player").GetComponent<PlayerController>();
 
+        //Getting game manager script
+        movementSpeed = GameObject.Find("Game Manager").GetComponent<GameManager>();
 
 
 
@@ -54,14 +58,11 @@ public class MoveTowards : MonoBehaviour
         //Making sure player boolean is false
         if (playerControllerScript.gameOver == false)
         {
-            // Re-enable physics
-            //obstacleRb.isKinematic = false;
-
 
             //Moving obstacle towards screen
-            obstacleRb.AddForce(Vector3.back * speed);
+            obstacleRb.AddForce(Vector3.back * movementSpeed.GetSpeed());
 
-            //obstacleRb.transform.Translate(Vector3.back * speed);
+            //obstacleRb.transform.Translate(Vector3.back * movementSpeed.speed);
 
         }
         else
@@ -76,5 +77,6 @@ public class MoveTowards : MonoBehaviour
         }
 
     }
+
 
 }

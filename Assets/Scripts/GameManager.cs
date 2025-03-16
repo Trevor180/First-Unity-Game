@@ -2,7 +2,9 @@ using UnityEngine;
 using UnityEngine.SceneManagement; //Managing Scene
 using UnityEngine.UI; //Grabbing buttons and UI
 using TMPro; //Can use text mesh pro classes and methods
-using System.ComponentModel; 
+using System.ComponentModel;
+using System.Collections;
+using Unity.VisualScripting;
 
 
 public class GameManager : MonoBehaviour
@@ -24,7 +26,24 @@ public class GameManager : MonoBehaviour
 
     //Getting player scripts
     private PlayerController playerControllerScript;
-    
+
+    //Getting player scripts
+    private SpawnManager spawnManagerScript;
+
+    //Movement speed of objects 2.5
+    private float speed = 2.5f;
+    private bool isSpeedingUp = false;
+    private float speedIncrease = 0.5f;
+    private float speedCap = 6.5f;
+
+    //Making speed getter
+    public float GetSpeed()
+    {
+        return speed;
+    }
+
+
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -33,13 +52,11 @@ public class GameManager : MonoBehaviour
         //Grabbing player object
         playerControllerScript = GameObject.Find("Player").GetComponent<PlayerController>();
 
-
         //Restarting game when restart button is clicked
         restartButton.onClick.AddListener(RestartGame);
 
         //Arranging score
         score = 0;
-
 
     }
 
@@ -48,6 +65,19 @@ public class GameManager : MonoBehaviour
     {
         //Adding score
         AddingScore(10);
+
+
+        //Speeding up over time
+        if(isSpeedingUp == false && playerControllerScript.gameOver == false)
+        {
+            //Speeding game up over time
+            StartCoroutine(SpeedUp());
+
+        }
+        
+
+        Debug.Log("Speed has increased to: " + speed);
+
     }
 
 
@@ -77,10 +107,30 @@ public class GameManager : MonoBehaviour
 
 
             scoreText.text = "Score " + score;
+        }
 
-            Debug.Log("Score Updating: " + score);
+    }
+
+    IEnumerator SpeedUp()
+    {
+        isSpeedingUp = true;
+        yield return new WaitForSeconds(2);
+
+        if (speed < speedCap)
+        {
+            speed += speedIncrease;
+            isSpeedingUp = false;
 
         }
+        else
+        {
+            //Capping speed
+            speed = speedCap;
+            isSpeedingUp = false;
+        }
+           
+       
+        
 
     }
 

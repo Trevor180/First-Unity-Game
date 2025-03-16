@@ -151,8 +151,6 @@ public class PlayerController : MonoBehaviour
             //Turning powerup bomb off
             hasBomb = false;
 
-            Debug.Log("Enemy has blown up");
-
             //Stopping next block of code from running
             return;
 
@@ -167,7 +165,6 @@ public class PlayerController : MonoBehaviour
             if (gameOver == false)
             {
                 gameOver = true;
-                Debug.Log("Enemy has been hit");
 
                 //Showing impact smoke
                 enemyHitExplosionPrefab.Play();
@@ -219,8 +216,6 @@ public class PlayerController : MonoBehaviour
             //Showing bomb powerup UI
             gameManagerScript.bombPowerup.gameObject.SetActive(true);
 
-
-            Debug.Log("Player has a bomb!");
 
             //Bomb boolean set true
             hasBomb = true;

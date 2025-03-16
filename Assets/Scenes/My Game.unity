@@ -206,7 +206,6 @@ MonoBehaviour:
   - {fileID: 5590327587856148076, guid: 4ddfda8dd16ce4e48b1e3a8f3a5e0ae4, type: 3}
   powerups:
   - {fileID: 2518498607995599260, guid: fede326a38a92d34c9b9039f44440bb3, type: 3}
-  - {fileID: 1133861680357335670, guid: 4e0c3e14de6e33a40956476e3735ab81, type: 3}
 --- !u!1001 &91303952
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3980,6 +3979,7 @@ MonoBehaviour:
   restartButton: {fileID: 989917802}
   gameOverImage: {fileID: 167784717}
   bombPowerup: {fileID: 1094869224}
+  speed: 200
 --- !u!4 &1214961677 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7422955339616670871, guid: 46ffc482a5b7ead4180fcaee8b20e708, type: 3}
@@ -5860,7 +5860,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1804468323
 RectTransform:
   m_ObjectHideFlags: 0
