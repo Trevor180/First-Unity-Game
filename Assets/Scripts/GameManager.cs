@@ -33,8 +33,8 @@ public class GameManager : MonoBehaviour
     //Getting Spawn Manager script
     private SpawnManager spawnManagerScript;
 
-    //Movement speed of objects 2.5
-    private float speed = 2.5f;
+    //Movement speed of objects 3.5
+    private float speed = 3.5f;
     private bool isSpeedingUp = false;
     private float speedIncrease = 0.5f;
     private float speedCap = 15.0f;
