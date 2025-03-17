@@ -50,7 +50,10 @@ public class RepeatMountains : MonoBehaviour
 
         if (transform.position.z < startPos.z - repeatWidth )
         {
-            transform.position = startPos;
+            Destroy(gameObject);
+
+            Instantiate(gameObject, startPos, transform.rotation);
+            //transform.position = startPos;
         }
 
 
