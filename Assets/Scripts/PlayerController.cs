@@ -13,9 +13,6 @@ public class PlayerController : MonoBehaviour
     //Camera title music
     private MainCamera titleMusic;
 
-    //Getting object speeds
-    private MoveTowards objectSpeed;
-
 
     private float horizontalInput;
     public float speed;

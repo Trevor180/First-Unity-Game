@@ -15,8 +15,11 @@ public class GameManager : MonoBehaviour
     //Player score
     private int score;
 
-    //Making button variable
+    //Making button variables
     public Button restartButton;
+    public Button tutorialButton;
+    public Button backButton;
+    public GameObject tutorialScreen;
 
     //Getting game over image
     public Image gameOverImage;
@@ -60,6 +63,12 @@ public class GameManager : MonoBehaviour
         //Restarting game when restart button is clicked
         restartButton.onClick.AddListener(RestartGame);
 
+        //Showing tutorial page
+        tutorialButton.onClick.AddListener(OpenTutorialPage);
+
+        //Going back to homepage
+         backButton.onClick.AddListener(BackButton);
+
         //Arranging score
         score = 0;
 
@@ -98,6 +107,33 @@ public class GameManager : MonoBehaviour
     {
         //Using current active scene
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+
+    //Showing tutorial page
+    public void OpenTutorialPage()
+    {
+
+        //Showing back button
+        tutorialScreen.gameObject.SetActive(true);
+
+        //Turning off title screen from player script
+        playerControllerScript.titleScreen.gameObject.SetActive(false);
+        
+
+    }
+
+    //Going back to main menu
+    public void BackButton()
+    {
+
+        //Showing back button
+        tutorialScreen.gameObject.SetActive(false);
+
+        //Turning off title screen from player script
+        playerControllerScript.titleScreen.gameObject.SetActive(true);
+
+
     }
 
 
