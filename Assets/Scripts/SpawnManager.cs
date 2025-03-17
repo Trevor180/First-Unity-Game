@@ -16,7 +16,7 @@ public class SpawnManager : MonoBehaviour
 
     //Enemy spawn traits
     private float enemyStartDelay = 0.3f;
-    private float enemySpawnTime = 0.5f;
+    private float enemySpawnTime = 0.45f;
 
 
     //Subtracting spawn time
