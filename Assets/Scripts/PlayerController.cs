@@ -43,11 +43,6 @@ public class PlayerController : MonoBehaviour
     //If player has bomb power up
     public bool hasBomb = false;
 
-
-    //Grabbing move towards scripts
-
-    private MoveTowards endOfGame;
-
     //Adding Rigidbody component
     private Rigidbody playerRb;
 

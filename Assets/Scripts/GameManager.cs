@@ -162,7 +162,7 @@ public class GameManager : MonoBehaviour
             speed += speedIncrease;
 
             //subtracting to enemy spawn time
-            spawnManagerScript.SubtractEnemySpawnTime(0.1f);
+            //spawnManagerScript.SubtractEnemySpawnTime(0.1f);
 
             isSpeedingUp = false;
 
@@ -171,7 +171,7 @@ public class GameManager : MonoBehaviour
         {
             //Capping speed
             speed = speedCap;
-            spawnManagerScript.SetEnemySpawnTime(0.01f);
+            //spawnManagerScript.SetEnemySpawnTime(0.01f);
             isSpeedingUp = false;
         }
            
