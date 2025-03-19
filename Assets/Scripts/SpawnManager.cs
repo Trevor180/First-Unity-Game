@@ -18,6 +18,10 @@ public class SpawnManager : MonoBehaviour
     private float enemyStartDelay = 0.3f;
     private float enemySpawnTime = 0.45f;
 
+    //Powerup traits
+    private float powerupStartDelay = 4.5f;
+    private float powerupSpawnTime = 3.0f;
+
 
     //Subtracting spawn time
     public float SubtractEnemySpawnTime(float decrease)
@@ -31,9 +35,6 @@ public class SpawnManager : MonoBehaviour
         return enemySpawnTime = cap;
     }
 
-    //Powerup traits
-    private float powerupStartDelay = 2.0f;
-    private float powerupSpawnTime = 5.0f;
 
 
     //Getting player scripts
