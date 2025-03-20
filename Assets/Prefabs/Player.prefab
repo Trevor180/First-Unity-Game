@@ -128,6 +128,9 @@ MonoBehaviour:
   powerupSound: {fileID: 8300000, guid: 8b5fe482da220ac49a23883eac57e82e, type: 3}
   gameOverSound: {fileID: 8300000, guid: a73e48cfd4c3e8443b2397d5017e9744, type: 3}
   hitEnemySound: {fileID: 8300000, guid: a518e8f0287a235408bc81b583ccc9c4, type: 3}
+  explosionPrefab: {fileID: 0}
+  enemyHitExplosionPrefab: {fileID: 0}
+  titleScreen: {fileID: 0}
   gameOver: 0
   hasBomb: 0
 --- !u!54 &600664808714683753
@@ -156,7 +159,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 124
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!82 &8506282904233522386
 AudioSource:
   m_ObjectHideFlags: 0

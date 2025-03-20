@@ -94,9 +94,10 @@ public class PlayerController : MonoBehaviour
             //Horizontal input
             horizontalInput = Input.GetAxis("Horizontal");
 
-            //Move side to side with force since we're using physics 
-            //NOT TRANSLATE
+            //Move side to side
             playerRb.transform.Translate(Vector3.right * Time.deltaTime * speed * horizontalInput);
+
+
 
         }
 
