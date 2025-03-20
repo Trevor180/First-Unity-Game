@@ -34,7 +34,7 @@ public class GameManager : MonoBehaviour
     private SpawnManager spawnManagerScript;
 
     //Movement speed of objects 3.5
-    private float speed = 3.0f;
+    private float speed = 2.5f;
     private bool isSpeedingUp = false;
     private float speedIncrease = 0.5f;
     private float speedCap = 15.0f;
@@ -155,7 +155,7 @@ public class GameManager : MonoBehaviour
     IEnumerator SpeedUp()
     {
         isSpeedingUp = true;
-        yield return new WaitForSeconds(15);
+        yield return new WaitForSeconds(20);
 
         if (speed < speedCap)
         {
