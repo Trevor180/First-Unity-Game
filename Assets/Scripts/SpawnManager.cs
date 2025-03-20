@@ -96,7 +96,7 @@ public class SpawnManager : MonoBehaviour
         float randomX = Random.Range(xSpawnRangeLeft, xSpawnRangeRight);
 
         //Spawning random powerup 
-        int randomIndex = Random.Range(0, enemies.Length);
+        //int randomIndex = Random.Range(0, enemies.Length);
 
         //Making them spawn near the end of the map
         Vector3 spawnPos = new Vector3(randomX, groundLevel, zPowerupSpawnRange);
@@ -107,7 +107,7 @@ public class SpawnManager : MonoBehaviour
         {
             //Making enemy spawn at the end of the map with random placement
             //in bounds
-            Instantiate(powerups[randomIndex], spawnPos, powerups[randomIndex].gameObject.transform.rotation);
+            Instantiate(powerups[0], spawnPos, powerups[0].gameObject.transform.rotation);
 
         }
 
