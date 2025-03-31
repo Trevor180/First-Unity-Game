@@ -46,6 +46,8 @@ public class PlayerController : MonoBehaviour
     //Adding Rigidbody component
     private Rigidbody playerRb;
 
+    //Touch screen
+    private float screenWidth;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -70,6 +72,9 @@ public class PlayerController : MonoBehaviour
         gameOver = true;
 
 
+        //Getting half of the screen width
+        screenWidth = screenWidth / 2;
+
 
     }
 
@@ -77,7 +82,10 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         //Move character method
-        MoveCharacter();
+        MoveCharacterKeyboard();
+
+        //TouchScreenSettings
+        MoveCharacterTouchScreen();
 
         //Keeping player in bounds
         KeepPlayerInBounds();
@@ -86,7 +94,7 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    void MoveCharacter()
+    void MoveCharacterKeyboard()
     {
         //Can move if the game isn't over
         if(gameOver == false)
@@ -100,6 +108,33 @@ public class PlayerController : MonoBehaviour
 
 
         }
+
+    }
+
+    void MoveCharacterTouchScreen()
+    {
+        //If one finger is one the screen then
+        //this code will run
+        if(Input.touchCount > 0)
+        {
+            //Takes touch on screen as input
+            Touch touch = Input.GetTouch(0);
+
+            //Moving left and right
+            if(touch.position.x < screenWidth)
+            {
+                playerRb.transform.Translate(Vector3.left * Time.deltaTime * speed);
+
+            }
+            else if(touch.position.x > screenWidth)
+            {
+                playerRb.transform.Translate(Vector3.right * Time.deltaTime * speed);
+
+            }
+
+        }
+
+
 
     }
 
